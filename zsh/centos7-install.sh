@@ -26,9 +26,11 @@ else
 	wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
 fi
 
-yum clean all && yum makecache && yum update -y
+yum clean all && yum makecache -y
+# yum update -y
 
-yum install zsh git vim jq -y
+yum install zsh git -y
+# yum install vim jq -y
 
 # install oh-my-zsh
 # sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
