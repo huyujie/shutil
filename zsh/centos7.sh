@@ -3,8 +3,8 @@
 # open debug
 set -x
 
-# exit if command execute doesn't return 0
-set -e 
+# exit if command execute doesn't return 0,don't open it
+# set -e 
 
 # zsh plugin install and config file place
 CUSTOM_PLUGINS="/root/.oh-my-zsh/custom/plugins"
@@ -31,9 +31,9 @@ yum clean all && yum makecache && yum update -y
 yum install zsh git vim jq -y
 
 # install oh-my-zsh
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-# git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-# cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+# sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 
 # install useful plugins for zsh.
 git clone https://github.com/zsh-users/zsh-completions.git ${CUSTOM_PLUGINS}/zsh-completions
@@ -49,7 +49,10 @@ sed -i -r -e 's|.*export ZSH|export ZSH|' \
 echo 'alias jq="jq --indent 4"' >> ${ZSHRC}
 echo 'alias vi="vim"' >> ${ZSHRC}
 
-zsh
-source ${ZSHRC}
+source ${ZSHRC} > /dev/null 2>&1
 
-# chsh -s /bin/zsh
+# or chsh -s /bin/zsh
+zsh
+
+# view current bash
+# ps | grep $$ | awk '{print $4}'
