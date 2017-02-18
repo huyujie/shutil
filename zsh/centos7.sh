@@ -7,8 +7,8 @@ set -x
 set -e 
 
 # zsh plugin install and config file place
-export CUSTOM_PLUGINS="/root/.oh-my-zsh/custom/plugins"
-export ZSHRC="/root/.zshrc"
+CUSTOM_PLUGINS="/root/.oh-my-zsh/custom/plugins"
+ZSHRC="/root/.zshrc"
 
 YUM_REPO_BACKUP="/etc/yum.repos.d/CentOS-Base.repo.backup"
 YUM_EPEL="/etc/yum.repos.d/epel.repo"
@@ -36,21 +36,20 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 # cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 
 # install useful plugins for zsh.
-# git clone https://github.com/zsh-users/zsh-completions.git ${CUSTOM_PLUGINS}/zsh-completions
-# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${CUSTOM_PLUGINS}/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-completions.git ${CUSTOM_PLUGINS}/zsh-completions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${CUSTOM_PLUGINS}/zsh-syntax-highlighting
 
-# sed -i -r -e 's|.*export ZSH|export ZSH|' \
-#           -e 's|.*ZSH_THEME.*|ZSH_THEME="agnoster"|' \
-#           -e 's|.*COMPLETION_WAITING_DOTS|COMPLETION_WAITING_DOTS|' \
-#           -e 's|.*HIST_STAMPS.*|HIST_STAMPS="yyyy-mm-dd"|' \
-#           -e 's|^plugins.*|plugins=(zsh-completions zsh-syntax-highlighting z httpie git autojump)|' \
-#           ${ZSHRC}
+sed -i -r -e 's|.*export ZSH|export ZSH|' \
+          -e 's|.*ZSH_THEME.*|ZSH_THEME="agnoster"|' \
+          -e 's|.*COMPLETION_WAITING_DOTS|COMPLETION_WAITING_DOTS|' \
+          -e 's|.*HIST_STAMPS.*|HIST_STAMPS="yyyy-mm-dd"|' \
+          -e 's|^plugins.*|plugins=(zsh-completions zsh-syntax-highlighting z httpie git autojump)|' \
+          ${ZSHRC}
 
-# echo 'alias jq="jq --indent 4"' >> ${ZSHRC}
-# echo 'alias vi="vim"' >> ${ZSHRC}
+echo 'alias jq="jq --indent 4"' >> ${ZSHRC}
+echo 'alias vi="vim"' >> ${ZSHRC}
 
-# export ZSH="/root/.oh-my-zsh"
+zsh
+source ${ZSHRC}
 
-# source ${ZSHRC}
-# zsh
 # chsh -s /bin/zsh
