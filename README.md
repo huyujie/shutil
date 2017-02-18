@@ -1,2 +1,2 @@
 # shutil
-Some common shell script for linux
+Some common shell script for linux.
