@@ -49,6 +49,11 @@ index-url = http://mirrors.aliyun.com/pypi/simple/
 trusted-host=mirrors.aliyun.com
 EOF
 
+# for angularjs or nodejs develop.
+# 'cnpm install package -g' is install global significant,abandon -g is for local.
+yum install nodejs -y
+npm install cnpm -g --registry=https://registry.npm.taobao.org
+
 # basic package
 yum install openssh net-tools bridge-utils iproute lsof wget curl jq git -y
 
