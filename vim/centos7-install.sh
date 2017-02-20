@@ -34,6 +34,7 @@ git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 cd ~/.vim/bundle/ && git clone --recursive https://github.com/davidhalter/jedi-vim.git
 
 # add golang plugin if you need,and in vim execute ":GoInstallBinaries"
+# Autocompletion is enabled by default via <C-x><C-o>
 # git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
 
 touch ~/.vim/vimrc
@@ -45,7 +46,7 @@ filetype plugin indent on
 
 set nocompatible
 
-syntax enable
+"syntax enable
 set t_Co=256
 let g:solarized_termcolors=256
 "set background=dark
@@ -58,9 +59,9 @@ set shiftwidth=4
 set softtabstop=4
 
 "jedi config,1 is enable,0 is disable
-let g:jedi#auto_initialization = 1
+"let g:jedi#auto_initialization = 1
 EOF
 
 printf "vim is now installed\n"
 echo ''
-printf "Please manual \"source /etc/profile\" make env become effective\n".
+printf "Please manual \"source /etc/profile\" make env become effective\n"
