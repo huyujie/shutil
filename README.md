@@ -1,7 +1,7 @@
 # shutil
 
-Some common shell script for linux,just need to execute.
-All of the scripts has test in docker containers where base images is centos7.2 or ubuntu16.04.
+Some common shell script for linux,include some basic config,just need to execute.
+All of the scripts has test in docker containers where base image is centos7.2 or ubuntu16.04.
 
 ## sysinit
 
