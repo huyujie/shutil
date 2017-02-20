@@ -16,7 +16,7 @@ fi
 yum install vim git sudo -y
 
 # just add,doessn't clear origin
-	cat <<EOF | sudo tee  -a $SYS_ENV
+	cat <<EOF | sudo tee -a $SYS_ENV
 alias vi='vim'
 EOF
 

@@ -18,5 +18,4 @@ include plugin pathogen nerdtree jedi-vim and vim-colors-solarized
 Complete install,you must execute 'source /etc/profile' to make enviroment effective.
 
 ## tools
-Ihosts is a tool to travel gfw in China,copy in https://github.com/racaljk/hosts.
-
+Ihosts is a tool to across gfw in China,copy in https://github.com/racaljk/hosts.
