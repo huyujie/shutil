@@ -1,7 +1,7 @@
 # shutil
 
-Some common shell script for linux,just need to execute.
-All of the scripts has test in docker containers where base images is centos7.2 or ubuntu16.04.
+Some common shell script for linux,include some basic config,just need to execute.
+All of the scripts has test in docker containers where base image is centos7.2 or ubuntu16.04.
 
 ## sysinit
 
@@ -18,5 +18,4 @@ include plugin pathogen nerdtree jedi-vim and vim-colors-solarized
 Complete install,you must execute 'source /etc/profile' to make enviroment effective.
 
 ## tools
-Ihosts is a tool to travel gfw in China,copy in https://github.com/racaljk/hosts.
-
+Ihosts is a tool to across gfw in China,copy in https://github.com/racaljk/hosts.

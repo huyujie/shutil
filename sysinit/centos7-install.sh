@@ -49,6 +49,11 @@ index-url = http://mirrors.aliyun.com/pypi/simple/
 trusted-host=mirrors.aliyun.com
 EOF
 
+# for angularjs or nodejs develop.
+# 'cnpm install package -g' is install global significant,abandon -g is for local.
+yum install nodejs -y
+npm install cnpm -g --registry=https://registry.npm.taobao.org
+
 # basic package
 yum install openssh net-tools bridge-utils iproute lsof wget curl jq git -y
 
@@ -57,15 +62,37 @@ yum install openssh net-tools bridge-utils iproute lsof wget curl jq git -y
 # touch /usr/local/share/applications/golangdir
 
 # 	cat <<EOF | sudo tee  -a "/etc/profile"
-# export GOLANG_ROOT_DIR=/usr
-# export PATH=$PATH:$GOLANG_ROOT_DIR/bin
 # export GOPATH=/usr/local/share/applications/golangdir
 # EOF
 
 # network-bridge
+#!/bin/bash
+# Simple script to create ifcfg scripts in /etc/sysconfig/network-scripts in CentOS from a static IP
 
+echo "Enter desired gateway (i.e: 192.168.128.1):"
+read gateway
+echo "Enter desired netmask (i.e: 255.255.240.0):"
+read netmask
+echo "Enter interface (i.e: eth0, ens3):"
+read interface
+echo "Enter IP without the main server IP(i.e: 192.168.138.134):"
+read ip
+
+OLD_INTERFACE=/etc/sysconfig/network-scripts/ifcfg-$interface
+mv $OLD_INTERFACE $OLD_INTERFACE.bak
+
+# sudo tee -a it means >>,sudo tee means >
+	cat <<EOF | sudo tee /etc/sysconfig/network-scripts/ifcfg-$interface
+DEVICE=$interface
+TYPE=Ethernet
+BOOTPROTO=static
+ONBOOT=yes
+DNS1=114.114.114.114
+IPADDR=$ip
+GATEWAY=$gateway
+NETMASK=$netmask
+EOF
 
 systemctl restart NetworkManager.service
-
 
 printf "If you install golang,please manual \"source /etc/profile\" make env become effective\n"

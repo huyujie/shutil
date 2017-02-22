@@ -12,7 +12,6 @@ ZSHRC="/root/.zshrc"
 
 YUM_REPO_BACKUP="/etc/yum.repos.d/CentOS-Base.repo.backup"
 YUM_EPEL="/etc/yum.repos.d/epel.repo"
-YUM_EPEL_BACKUP="/etc/yum.repos.d/epel.repo.backup"
 
 if [ ! -f "$YUM_REPO_BACKUP" ]; then
 	mv /etc/yum.repos.d/CentOS-Base.repo{,.backup}
