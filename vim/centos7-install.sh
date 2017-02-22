@@ -28,7 +28,7 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 cd ~/.vim/bundle && git clone git://github.com/altercation/vim-colors-solarized.git
 
 # add NERDTree plugin.you can enter ctrl+w(w must enter twice) can switch
-git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+cd ~/.vim/bundle && git clone https://github.com/scrooloose/nerdtree.git
 
 # add some python plugin.
 cd ~/.vim/bundle/ && git clone --recursive https://github.com/davidhalter/jedi-vim.git
@@ -59,7 +59,9 @@ set shiftwidth=4
 set softtabstop=4
 
 "jedi config,1 is enable,0 is disable
-"let g:jedi#auto_initialization = 1
+let g:jedi#auto_initialization = 1
+
+nnoremap <silent> <F5> :NERDTree<CR>
 EOF
 
 printf "vim is now installed\n"
