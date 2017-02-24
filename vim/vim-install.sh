@@ -59,6 +59,7 @@ let g:jedi#auto_initialization = 1
 
 Plugin 'scrooloose/nerdtree'
 nnoremap <silent> <F5> :NERDTree<CR>
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 Plugin 'altercation/vim-colors-solarized'
 syntax enable
