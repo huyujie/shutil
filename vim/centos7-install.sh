@@ -20,9 +20,8 @@ yum install vim git sudo -y
 alias vi='vim'
 EOF
 
-# install pathogen
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+# install Vundle，you can launch vim and run ':PluginInstall' plugin
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # add solarized theme
 cd ~/.vim/bundle && git clone git://github.com/altercation/vim-colors-solarized.git
@@ -40,28 +39,39 @@ cd ~/.vim/bundle/ && git clone --recursive https://github.com/davidhalter/jedi-v
 touch ~/.vim/vimrc
 
 	cat <<EOF | sudo tee ~/.vim/vimrc
-call pathogen#infect()
-syntax on
-filetype plugin indent on
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-set nocompatible
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
-"syntax enable
+Plugin 'davidhalter/jedi-vim'
+"jedi config,1 is enable,0 is disable
+let g:jedi#auto_initialization = 1
+
+Plugin 'scrooloose/nerdtree'
+nnoremap <silent> <F5> :NERDTree<CR>
+
+Plugin 'altercation/vim-colors-solarized'
+syntax enable
 set t_Co=256
 let g:solarized_termcolors=256
 "set background=dark
 "colorscheme solarized
+
+Plugin 'fatih/vim-go'
+
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 
 set nu
 set expandtab
 set tabstop=8
 set shiftwidth=4
 set softtabstop=4
-
-"jedi config,1 is enable,0 is disable
-let g:jedi#auto_initialization = 1
-
-nnoremap <silent> <F5> :NERDTree<CR>
 EOF
 
 printf "vim is now installed\n"
