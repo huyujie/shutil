@@ -13,7 +13,14 @@ if [[ -f "$CUSTOM_PATH" ]]; then
 	rm -rf $CUSTOM_PATH
 fi
 
-yum install vim git sudo -y
+
+if [[ -f "/etc/redhat-release" ]]; then
+	MIRROR_SOURCE=yum
+else
+	MIRROR_SOURCE=apt-get
+fi
+
+$MIRROR_SOURCE install vim git sudo -y
 
 # just add,doessn't clear origin
 	cat <<EOF | sudo tee -a $SYS_ENV

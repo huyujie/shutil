@@ -15,7 +15,9 @@ Ihosts is a tool to across gfw in China,copy in https://github.com/racaljk/hosts
 
 ## vim
 
-include plugin pathogen nerdtree jedi-vim and vim-colors-solarized
+same to centos7 and ubuntu16.04.
+
+include plugin pathogen nerdtree jedi-vim and vim-colors-solarized.
 
 Complete install,you must execute 'source /etc/profile' to make enviroment effective.
 
