@@ -50,6 +50,10 @@ sed -i -r -e 's|.*export ZSH|export ZSH|' \
 echo 'alias jq="jq --indent 4"' >> ${ZSHRC}
 echo 'alias vi="vim"' >> ${ZSHRC}
 
+# if use vim-go plugin
+# echo 'export PATH=$PATH:$GOPATH/bin' >> ${ZSHRC}
+
+
 source ${ZSHRC} > /dev/null 2>&1
 
 # or chsh -s /bin/zsh
