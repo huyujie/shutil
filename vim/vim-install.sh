@@ -69,7 +69,8 @@ let g:solarized_termcolors=256
 "colorscheme solarized
 
 Plugin 'fatih/vim-go'
-
+" vim-go settings
+let g:go_fmt_command = "goimports"
 
 call vundle#end()            " required
 filetype plugin indent on    " required
