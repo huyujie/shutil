@@ -8,7 +8,7 @@ set -e
 
 # zsh plugin install and config file place
 CUSTOM_PLUGINS="~/.oh-my-zsh/custom/plugins"
-ZSHRC="~/.zshrc"
+ZSHRC="/root/.zshrc"
 
 
 if grep -Eq "CentOS" /etc/issue || grep -Eq "CentOS" /etc/*-release; then
@@ -26,13 +26,13 @@ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 git clone https://github.com/zsh-users/zsh-completions.git ${CUSTOM_PLUGINS}/zsh-completions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${CUSTOM_PLUGINS}/zsh-syntax-highlighting
 
-mv flybean-agnoster.zsh-theme /root/.oh-my-zsh/themes
+cp flybean-agnoster.zsh-theme ~/.oh-my-zsh/themes
 
 sed -i -r -e 's|.*export ZSH|export ZSH|' \
           -e 's|.*ZSH_THEME.*|ZSH_THEME="flybean-agnoster"|' \
           -e 's|.*COMPLETION_WAITING_DOTS|COMPLETION_WAITING_DOTS|' \
           -e 's|.*HIST_STAMPS.*|HIST_STAMPS="yyyy-mm-dd"|' \
-          -e 's|^plugins.*|plugins=(zsh-completions zsh-syntax-highlighting z httpie git autojump)|' \
+          -e 's|^plugins.*|plugins=(zsh-completions zsh-syntax-highlighting z httpie autojump|' \
           ${ZSHRC}
 
 echo 'alias jq="jq --indent 4"' >> ${ZSHRC}
