@@ -37,11 +37,11 @@ cd ~/.vim/bundle && git clone git://github.com/altercation/vim-colors-solarized.
 cd ~/.vim/bundle && git clone https://github.com/scrooloose/nerdtree.git
 
 # add some python plugin.
-cd ~/.vim/bundle/ && git clone --recursive https://github.com/davidhalter/jedi-vim.git
+# cd ~/.vim/bundle/ && git clone --recursive https://github.com/davidhalter/jedi-vim.git
 
 # add golang plugin if you need,and in vim execute ":GoInstallBinaries"
 # Autocompletion is enabled by default via <C-x><C-o>
-# git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
+git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
 
 touch ~/.vim/vimrc
 
@@ -55,7 +55,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'davidhalter/jedi-vim'
 "jedi config,1 is enable,0 is disable
-let g:jedi#auto_initialization = 1
+"let g:jedi#auto_initialization = 1
 
 Plugin 'scrooloose/nerdtree'
 nnoremap <silent> <F5> :NERDTree<CR>
@@ -70,7 +70,7 @@ let g:solarized_termcolors=256
 
 Plugin 'fatih/vim-go'
 " vim-go settings
-let g:go_fmt_command = "goimports"
+" let g:go_fmt_command = "goimports"
 
 call vundle#end()            " required
 filetype plugin indent on    " required
