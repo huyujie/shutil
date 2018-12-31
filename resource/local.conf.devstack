@@ -37,7 +37,9 @@ enable_service mysql
 enable_service rabbit
 
 # Enable Tempest - The OpenStack Integration Test Suite
-enable_service tempest
+# enable_service tempest
+
+ENABLE_IDENTITY_V2=False
 
 # Define images to be automatically downloaded during the DevStack built process.
 DOWNLOAD_DEFAULT_IMAGES=False
@@ -48,21 +50,23 @@ IMAGE_URLS=http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img
 # https://docs.openstack.org/developer/devstack/plugins.html
 
 # Enable senlin
-enable_plugin senlin https://git.openstack.org/openstack/senlin
+# enable_plugin senlin https://git.openstack.org/openstack/senlin
 # Enable senlin-dashboard
 enable_plugin senlin-dashboard https://git.openstack.org/openstack/senlin-dashboard
 enable_service sl-api sl-eng
 # enable_plugin python-senlinclient https://git.openstack.org/openstack/python-senlinclient
 
 # Enable heat
-enable_plugin heat https://git.openstack.org/openstack/heat
-enable_service h-eng
-enable_service h-api
-enable_service h-api-cfn
+# enable_plugin heat https://git.openstack.org/openstack/heat
+# enable_service h-eng
+# enable_service h-api
+# enable_service h-api-cfn
 
 # Enable mistral
 enable_plugin mistral https://github.com/openstack/mistral
-enable_service mistral mistral-api mistral-engine mistral-executor mistral-event-engine
+
+# Enable zaqar
+enable_plugin zaqar https://git.openstack.org/openstack/zaqar
 
 # Enable sahara
 # enable_plugin sahara git://git.openstack.org/openstack/sahara

@@ -6,7 +6,7 @@ set -x
 # exit if command execute doesn't return 0
 set -e
 
-CUSTOM_PATH="/root/.vimrc"
+CUSTOM_PATH="~/.vimrc"
 SYS_ENV="/etc/profile"
 
 if [[ -f "$CUSTOM_PATH" ]]; then
@@ -31,7 +31,7 @@ EOF
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # add solarized theme
-cd ~/.vim/bundle && git clone git://github.com/altercation/vim-colors-solarized.git
+# cd ~/.vim/bundle && git clone git://github.com/altercation/vim-colors-solarized.git
 
 # add NERDTree plugin.you can enter ctrl+w(w must enter twice) can switch
 cd ~/.vim/bundle && git clone https://github.com/scrooloose/nerdtree.git
@@ -53,7 +53,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 "jedi config,1 is enable,0 is disable
 "let g:jedi#auto_initialization = 1
 
@@ -61,10 +61,10 @@ Plugin 'scrooloose/nerdtree'
 nnoremap <silent> <F5> :NERDTree<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
-Plugin 'altercation/vim-colors-solarized'
+"Plugin 'altercation/vim-colors-solarized'
 syntax enable
 set t_Co=256
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 "set background=dark
 "colorscheme solarized
 

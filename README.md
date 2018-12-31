@@ -10,12 +10,9 @@ local.conf.devstack is a 'local.conf' file for devstack.
 
 install some common package and change some basic config when system init. 
 
-## tools
-Ihosts is a tool to across gfw in China,copy in https://github.com/racaljk/hosts.
-
 ## vim
 
-same to centos7 and ubuntu16.04.
+same to centos7 and ubuntu18.04.
 
 include plugin pathogen nerdtree jedi-vim and vim-colors-solarized.
 
