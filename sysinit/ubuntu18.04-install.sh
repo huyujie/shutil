@@ -39,9 +39,11 @@ index-url = http://mirrors.aliyun.com/pypi/simple/
 trusted-host=mirrors.aliyun.com
 EOF
 
+pip install flake8
+
 # for golang develop
-wget https://studygolang.com/dl/golang/go1.11.linux-386.tar.gz
-tar -zxvf go1.11.linux-386.tar.gz && rm -rf go1.11.linux-386.tar.gz && mv go/ /usr/local/
+wget https://studygolang.com/dl/golang/go1.11.linux-amd64.tar.gz
+tar -zxvf go1.11.linux-amd64.tar.gz && rm -rf go1.11.linux-amd64.tar.gz && mv go/ /usr/local/
 
 mkdir -p /usr/local/share/golang/gopath
 

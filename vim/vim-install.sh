@@ -36,6 +36,13 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # add NERDTree plugin.you can enter ctrl+w(w must enter twice) can switch
 cd ~/.vim/bundle && git clone https://github.com/scrooloose/nerdtree.git
 
+# add status bar
+cd ~/.vim/bundle && git clone https://github.com/vim-airline/vim-airline.git
+cd ~/.vim/bundle && git clone https://github.com/vim-airline/vim-airline-themes.git
+
+# flake8 inspect
+cd ~/.vim/bundle && git clone https://github.com/w0rp/ale.git
+
 # add some python plugin.
 # cd ~/.vim/bundle/ && git clone --recursive https://github.com/davidhalter/jedi-vim.git
 
@@ -68,6 +75,19 @@ set t_Co=256
 "set background=dark
 "colorscheme solarized
 
+"status bar
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+
+"flake8 plugin,need install flake8
+Plugin 'w0rp/ale'
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+let g:ale_sign_column_always = 1
+let g:airline#extensions#ale#enabled = 1
+
 Plugin 'fatih/vim-go'
 " vim-go settings
 " let g:go_fmt_command = "goimports"
@@ -75,12 +95,25 @@ Plugin 'fatih/vim-go'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-
 set nu
 set expandtab
 set tabstop=8
 set shiftwidth=4
 set softtabstop=4
+
+map <F5> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+        exec "w"
+        if &filetype == 'sh'
+                :!time bash %
+        elseif &filetype == 'python'
+                exec "!clear"
+                exec "!time python %"
+        elseif &filetype == 'go'
+                " exec "!go build %<"
+                exec "!time go run %"
+        endif
+endfunc
 EOF
 
 printf "vim is now installed\n"
