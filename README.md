@@ -20,4 +20,4 @@ Complete install,you must execute 'source /etc/profile' to make enviroment effec
 
 ## zsh
 
-include plugin zsh-completions zsh-syntax-highlighting and theme default agnoster.
+include plugin zsh-completions zsh-syntax-highlighting.

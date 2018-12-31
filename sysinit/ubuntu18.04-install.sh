@@ -19,7 +19,7 @@ deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe 
 deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
 EOF
 
-apt-get update && apt-get upgrade
+apt-get update -y && apt-get upgrade -y
 
 # ntp
 apt-get install ntp ntpdate -y
@@ -43,7 +43,7 @@ EOF
 wget https://studygolang.com/dl/golang/go1.11.linux-386.tar.gz
 tar -zxvf go1.11.linux-386.tar.gz && rm -rf go1.11.linux-386.tar.gz && mv go/ /usr/local/
 
-touch /usr/local/share/golang/gopath
+mkdir -p /usr/local/share/golang/gopath
 
     cat <<EOF | sudo tee  -a "/etc/profile"
 export GOPATH=/usr/local/share/golang/gopath

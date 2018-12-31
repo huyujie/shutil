@@ -7,14 +7,14 @@ set -x
 set -e 
 
 # zsh plugin install and config file place
-CUSTOM_PLUGINS="~/.oh-my-zsh/custom/plugins"
-ZSHRC="~/.zshrc"
+CUSTOM_PLUGINS="/root/.oh-my-zsh/custom/plugins"
+ZSHRC="/root/.zshrc"
 
 
 if grep -Eq "CentOS" /etc/issue || grep -Eq "CentOS" /etc/*-release; then
     yum install zsh git vim jq -y
 elif grep -Eq "Ubuntu" /etc/issue || grep -Eq "Ubuntu" /etc/*-release; then
-    apt-get install zsh jq
+    apt-get install zsh jq -y
 fi
 
 # install oh-my-zsh
@@ -36,14 +36,12 @@ sed -i -r -e 's|.*export ZSH|export ZSH|' \
 
 echo 'alias jq="jq --indent 4"' >> ${ZSHRC}
 echo 'alias vi="vim"' >> ${ZSHRC}
+echo 'setopt no_nomatch' >> ${ZSHRC}
 
 # if use vim-go plugin
-    cat <<EOF | sudo tee  -a "/etc/profile"
-export GOPATH=/usr/local/share/golang/gopath
-export GOLANG_ROOT_DIR=/usr/local/go
-export PATH=$PATH:$GOLANG_ROOT_DIR/bin:$GOPATH/bin
-EOF
-# echo 'export PATH=$PATH:$GOPATH/bin' >> ${ZSHRC}
+echo 'export GOPATH=/usr/local/share/golang/gopath' >> ${ZSHRC}
+echo 'export GOLANG_ROOT_DIR=/usr/local/go' >> ${ZSHRC}
+echo 'export PATH=$PATH:$GOLANG_ROOT_DIR/bin:$GOPATH/bin' >> ${ZSHRC}
 
 
 source ${ZSHRC} > /dev/null 2>&1
