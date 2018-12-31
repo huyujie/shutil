@@ -49,6 +49,7 @@ mkdir -p /usr/local/share/golang/gopath
 
     cat <<EOF | sudo tee  -a "/etc/profile"
 export GOPATH=/usr/local/share/golang/gopath
+export GOBIN=$GOPATH/bin
 export GOLANG_ROOT_DIR=/usr/local/go
 export PATH=$PATH:$GOLANG_ROOT_DIR/bin:$GOPATH/bin
 EOF

@@ -101,7 +101,7 @@ set tabstop=8
 set shiftwidth=4
 set softtabstop=4
 
-map <F5> :call CompileRunGcc()<CR>
+map <F6> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
         exec "w"
         if &filetype == 'sh'
