@@ -136,4 +136,4 @@ EOF
 
 printf "Please manual \"source /etc/profile\" make env become effective\n"
 echo ''
-print "The end, you must execute 'PluginInstall' in vim."
+printf "The end, you must execute 'PluginInstall' in vim."
