@@ -54,4 +54,7 @@ export GOLANG_ROOT_DIR=/usr/local/go
 export PATH=$PATH:$GOLANG_ROOT_DIR/bin:$GOPATH/bin
 EOF
 
+# text search
+apt-get install silversearcher-ag
+
 printf "If you install golang,please manual \"source /etc/profile\" make env become effective\n"

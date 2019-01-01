@@ -88,6 +88,21 @@ let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
 let g:airline#extensions#ale#enabled = 1
 
+"fzf
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
+"defalut <Leader> is '\'
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+
+"text search, need install silversearcher-ag pre
+Plugin 'mileszs/ack.vim'
+let g:ackprg = 'ag --nogroup --nocolor --column'
+  
+Plugin 'dyng/ctrlsf.vim'
+let g:ctrlsf_ackprg = 'ag' 
+nnoremap <leader>c :CtrlSF<space>
+
 Plugin 'fatih/vim-go'
 " vim-go settings
 " let g:go_fmt_command = "goimports"
@@ -116,6 +131,6 @@ func! CompileRunGcc()
 endfunc
 EOF
 
-printf "vim is now installed\n"
-echo ''
 printf "Please manual \"source /etc/profile\" make env become effective\n"
+echo ''
+print "The end, you must execute 'PluginInstall' in vim."
