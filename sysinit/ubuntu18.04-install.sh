@@ -57,4 +57,12 @@ EOF
 # text search
 apt-get install silversearcher-ag
 
+# ctags
+sudo apt-get install dh-autoreconf pkg-config -y
+git clone https://github.com/universal-ctags/ctags.git && cd ctags
+./autogen.sh
+./configure --prefix=/usr/local/share/ctags
+make && make install
+cp /usr/local/share/ctags/bin/ctags /usr/bin
+
 printf "If you install golang,please manual \"source /etc/profile\" make env become effective\n"

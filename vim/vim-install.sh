@@ -107,6 +107,9 @@ Plugin 'fatih/vim-go'
 " vim-go settings
 " let g:go_fmt_command = "goimports"
 
+"function jump
+Plugin 'majutsushi/tagbar'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
